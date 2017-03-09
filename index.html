@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>COLDPL∆Y</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+    <script src="json/list.js"></script>
+</head>
+
+<body onload="intro()">
+    <div id="loader">
+        <div class="align">
+            <div class="fix">
+                <div class="line small">
+                </div>
+                <div class="line middle">
+                </div>
+                <div class="line large">
+                </div>
+                <div class="line middle">
+                </div>
+                <div class="line small">
+                </div>
+            </div>
+            <div class="logo">
+                <div class="cache">
+                </div>
+                <img class="coldplayLoad" src="img-content/cold.png">
+            </div>
+        </div>
+    </div>
+    <div id="principal" class="animate-bottom">
+        <figure class="gif cf" id="gif">
+            <img src="http://coldplay.com/wp-content/themes/ahfod/images/Coldplay_new2.gif">
+            <h1><img src="img-content/cold.png"></h1>
+        </figure>
+        <div id="albumselector">
+            <audio id="player" class="cf">
+                <source src="" id="source">
+            </audio>
+            <a href="#top" class="smoothScroll" id="choix_album">
+            </a>
+            <div class="accordion">
+                <ul>
+                    <li class="frame">
+                        <div class="playlist">
+                            <h2 class="album">A Head Full of Dreams</h2>
+                            <p>1. A head full of dreams</p>
+                            </br>
+                            <p>2. Birds</p>
+                            </br>
+                            <p>3. Hymn for the weekend</p>
+                            </br>
+                            <p>4. Everglow</p>
+                            </br>
+                            <p>5. Adventure of a lifetime</p>
+                            </br>
+                            <p>6. Fun</p>
+                            </br>
+                            <p>7. Kaleidoscope</p>
+                            </br>
+                            <p>8. Army of one</p>
+                            </br>
+                            <p>9. Amazing day</p>
+                            </br>
+                            <p>10. Colour spectrum</p>
+                            </br>
+                            <p>11. Up up</p>
+                        </div>
+                    </li>
+                    <li class="frame">
+                        <div class="playlist">
+                            <h2 class="album">Mylo Xyloto</h2>
+                            <p class="long">1. Mylo xyloto</p>
+                            </br>
+                            <p class="long">2. Hurts like heaven</p>
+                            </br>
+                            <p class="long">3. Paradise</p>
+                            </br>
+                            <p class="long">4. Charlie brown</p>
+                            </br>
+                            <p class="long">5. Us against the world</p>
+                            </br>
+                            <p class="long">6. MMIX</p>
+                            </br>
+                            <p class="long">7. Everybody teardop is a waterfall</p>
+                            </br>
+                            <p class="long">8. Major minus</p>
+                            </br>
+                            <p class="long">9. UFO</p>
+                            </br>
+                            <p class="long">10. Princess of China</p>
+                            </br>
+                            <p class="long">11. Up in flames</p>
+                            </br>
+                            <p class="long">12. A hopeful transmission</p>
+                            </br>
+                            <p class="long">13. Don't let it break your heart</p>
+                            </br>
+                            <p class="long">14. Up with the birds</p> 
+                        </div>
+                    </li>
+                    <li class="frame">
+                        <div class="playlist">
+                            <h2 class="album">Viva la Vida</h2>
+                            <p>1. Life in technicolor</p>
+                            </br>
+                            <p>2. Cemeteries of London</p>
+                            </br>
+                            <p>3. Lost</p>
+                            </br>
+                            <p>4. 42</p>
+                            </br>
+                            <p>5. Lovers in Japan</p>
+                            </br>
+                            <p>6. Yes</p>
+                            </br>
+                            <p>7. Viva la vida</p>
+                            </br>
+                            <p>8. Violet Hill</p>
+                            </br>
+                            <p>9. Strawberry swing</p>
+                            </br>
+                            <p>10. Death and all his friends</p>
+                        </div>
+                    </li>
+                    <li class="frame">
+                        <div class="playlist">
+                            <h2 class="album">XY</h2>
+                            <p>1. Square one</p>
+                            </br>
+                            <p>2. What if</p>
+                            </br>
+                            <p>3. White shadows</p>
+                            </br>
+                            <p>4. Fix you</p>
+                            </br>
+                            <p>5. Talk</p>
+                            </br>
+                            <p>6. XY</p>
+                            </br>
+                            <p>7. Speed of sound</p>
+                            </br>
+                            <p>8. A message</p>
+                            </br>
+                            <p>9. Low</p>
+                            </br>
+                            <p>10. The hardest part</p>
+                            </br>
+                            <p>11. Swallowed in the sea</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="lecteur cf">
+                <div class="title">
+                </div>
+
+                <div class="player-control">
+                    <img class="loop" src="img/repeat2.png" alt="repeat">
+                    <img class="play visible" src="img/play-button.png">
+                    <img class="pause hidden" src="img/pause-button.png"> 
+                    <img class="shuffle" src="img/shuffle2.png" alt="shuffle">
+                </div>
+
+                <div class="navigation">
+                    <div id="progressBarControl">
+                        <div id="progressBar">
+                        </div>
+                    </div>
+
+                    <div class="nav">
+                        <img class="prev" src="img/back.png" class="left">
+                        <img class="next" src="img/next.png" class="right">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/player.js"></script>
+    <script src="js/style.js"></script>
+</body>
+</html>
