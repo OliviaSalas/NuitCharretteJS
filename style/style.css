@@ -1,0 +1,668 @@
+@charset "utf-8";
+
+/* -------------------------------------------
+--
+-- Projet Coldplay Player
+-- Revision 20170106
+--
+-------------------------------------------- */
+
+
+/*--------------- Reset --------------------- */
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+.cf:before,
+.cf:after {
+    content: ' ';
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+
+/* -------------------- Body ------------------- */
+
+body {
+    background-image: url(../img-content/coldplay-background.jpg);
+    height: 100vh;
+    width: 100%;
+}
+
+
+/* -------------------- Loader --------------------------------- */
+
+#loader {
+    width: 100%;
+    height: 100vh;
+}
+
+.align {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: #000;
+}
+
+.fix {
+    height: 15vh;
+    display: flex;
+    align-items: center;
+}
+
+.line {
+    background-color: white;
+    width: 8px;
+    height: 40px;
+    margin: 0 4px;
+    border-radius: 4px;
+    animation: small;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-duration: 6s;
+    background-color: rgba(26, 188, 156, 1.0);
+}
+
+.middle {
+    animation: middle;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-duration: 5s;
+}
+
+.large {
+    animation: large;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-duration: 5s;
+}
+
+
+/*--------------- Keyframes / Loader -------------------------------------*/
+
+@keyframes small {
+    0% {
+        background-color: rgba(26, 188, 156, 1.0)
+    }
+    15% {
+        background-color: rgba(46, 204, 113, 1.0)
+    }
+    30% {
+        background-color: rgba(52, 152, 219, 1.0)
+    }
+    45% {
+        background-color: rgba(155, 89, 182, 1.0)
+    }
+    50% {
+        height: 40px;
+    }
+    60% {
+        background-color: rgba(231, 76, 60, 1.0)
+    }
+    85% {
+        background-color: rgba(230, 126, 34, 1.0)
+    }
+    100% {
+        height: 80px;
+        background-color: rgba(241, 196, 15, 1.0)
+    }
+}
+
+@keyframes large {
+    0% {
+        height: 40px;
+        background-color: rgba(26, 188, 156, 1.0)
+    }
+    15% {
+        background-color: rgba(46, 204, 113, 1.0)
+    }
+    30% {
+        background-color: rgba(52, 152, 219, 1.0)
+    }
+    45% {
+        background-color: rgba(155, 89, 182, 1.0)
+    }
+    50% {
+        height: 80px;
+    }
+    60% {
+        background-color: rgba(231, 76, 60, 1.0)
+    }
+    85% {
+        background-color: rgba(230, 126, 34, 1.0)
+    }
+    100% {
+        height: 40px;
+        background-color: rgba(241, 196, 15, 1.0)
+    }
+}
+
+@keyframes middle {
+    0% {
+        height: 40px;
+        background-color: rgba(26, 188, 156, 1.0)
+    }
+    15% {
+        background-color: rgba(46, 204, 113, 1.0)
+    }
+    30% {
+        background-color: rgba(52, 152, 219, 1.0)
+    }
+    45% {
+        background-color: rgba(155, 89, 182, 1.0)
+    }
+    50% {
+        height: 60px;
+    }
+    60% {
+        background-color: rgba(231, 76, 60, 1.0)
+    }
+    85% {
+        background-color: rgba(230, 126, 34, 1.0)
+    }
+    100% {
+        height: 50px;
+        background-color: rgba(241, 196, 15, 1.0)
+    }
+}
+
+.line:first-child {
+    animation-delay: 0s;
+}
+
+.line:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.line:nth-child(3) {
+    animation-delay: .4s;
+}
+
+.line:nth-child(4) {
+    animation-delay: .6s;
+}
+
+.line:last-child {
+    animation-delay: .8s;
+}
+
+
+/*---------------- Logo Coldplay ----------------------------------*/
+
+.logo {
+    position: relative;
+    overflow: hidden;
+}
+
+.cache {
+    background-color: #000;
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    z-index: 3;
+    opacity: 1;
+    right: 0;
+    top: 0;
+    -webkit-animation: cache 4s;
+    box-shadow: -10px 0px 20px 0px rgba(0, 0, 0, 0.77);
+    /*	-webkit-animation-delay: 0.5s;*/
+}
+
+@-webkit-keyframes cache {
+    0% {
+        width: 100%;
+    }
+    100% {
+        width: 0%;
+    }
+}
+
+.coldplayLoad {
+    display: inline-block;
+}
+
+
+/*---------------- Contenu Principal ------------------------------*/
+
+#principal {
+    display: none;
+    text-align: center;
+}
+
+.gif {
+    opacity: 0;
+}
+
+.gif img {
+    width: 70px;
+    float: left;
+    padding: 1%;
+}
+
+#principal h1 {
+    float: left;
+}
+
+#principal h1 img {
+    display: block;
+    width: 65%;
+    padding-top: 9%;
+}
+
+
+
+/*--- Structure de l'accordeon ----------------------------*/
+
+#albumselector {
+    margin: 0;
+    clear: both;
+}
+
+.accordion {
+    width: 100%;
+    max-width: 1080px;
+    height: 55vh;
+    margin: 0 auto 25px auto;
+}
+
+.accordion ul {
+    width: 100%;
+    height: 100%;
+    display: table;
+    table-layout: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+.accordion ul li {
+    display: table-cell;
+    position: relative;
+    width: 16.666%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: all 500ms ease;
+    background-size: cover;
+}
+
+.accordion ul .selected {
+    width: 70%;
+    opacity: 0.6;
+}
+
+.accordion ul li a {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.accordion ul li:nth-child(1) {
+    background-image: url("../img-content/cover1.jpg");
+}
+
+.accordion ul li:nth-child(2) {
+    background-image: url("../img-content/cover2.jpg");
+}
+
+.accordion ul li:nth-child(3) {
+    background-image: url("../img-content/cover3.jpg");
+}
+
+.accordion ul li:nth-child(4) {
+    background-image: url("../img-content/cover4.jpg");
+}
+
+.accordion ul:hover li {
+    width: 16.666%;
+}
+
+.accordion ul:hover li:hover {
+    width: 70%;
+}
+
+
+/*---------- PLaylist ---------------------------------------*/
+
+div.playlist {
+    padding-bottom: 10px;
+    visibility: hidden;
+}
+
+li.frame.selected .playlist {
+    visibility: visible;
+}
+
+h2.album {
+    color: white;
+    text-align: center;
+    margin-bottom: 12px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+
+p {
+    color: white;
+    text-align: left;
+    line-height: 50%;
+    margin-left: 10px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    margin-bottom: 2px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+
+p.long {
+    line-height: 20%;
+}
+
+/* ---------------- lecteur audio ----------------------------- */
+
+.lecteur {
+    width: 100%;
+    position: absolute;
+    margin-top: 10px;
+}
+
+.player-control {
+    display: inline-block;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.play {
+    width: 25px;
+    text-align: center;
+}
+
+.pause {
+    width: 25px;
+}
+.shuffle {
+    float: right;
+}
+.loop {
+    float: left;
+}
+.next {
+    margin-left: 1.5%;
+    width: 20px;
+}
+
+.prev {
+    margin-top: 4vh;
+    width: 20px;
+}
+/*----------------- Boutons Hover ---------------------------------------*/
+.play:hover,
+.pause:hover {
+    background-color: lightgrey;
+    border: 1px solid lightgrey;
+    border-radius: 20%;
+    
+}
+
+.play:active,
+.pause:active {
+    background-color: #818181;
+    
+} 
+
+.loop:hover,
+.shuffle:hover {
+    background-color: lightgrey;
+    border: 1px solid lightgrey;
+    border-radius: 20%;
+}
+
+.next:hover,
+.prev:hover {
+    background-color: lightgrey;
+    border: 1px solid lightgrey;
+    border-radius: 20%;
+}
+/*--------------------------------------------------------*/
+.hidden {
+    display: none;   
+}
+.visible {
+    display: inline-block; 
+}
+
+.left,
+.right {
+    width: 20px;
+}
+
+#progressBarControl {
+    width: 75%;
+    display: inline-block;
+    height: 20px;
+}
+
+#progressBar {
+    margin-top: 3vh;
+    background-color: white;
+    height: 0.3vh;
+}
+
+#progressBar:hover {
+    background-color: dodgerblue;
+}
+
+.title p {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 3%;
+    font-size: 22px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    
+}
+
+/* -- media queries
+--------------------------------------------------- */
+@media screen and (max-width: 600px) {
+
+}
+
+
+@media screen and (max-device-width: 600px) {
+    .accordion ul li,
+    .accordion ul .selected,
+    .accordion ul li:hover,
+    .accordion ul:hover li,
+    .accordion ul:hover li:hover {
+       position: relative;
+        display: inline-block;
+        width: 40%;
+        height: 40%;
+        -webkit-transition: none;
+        transition: none;
+        
+    }
+    .accordion ul li {
+        vertical-align: bottom;
+        position: relative;
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+    }
+    
+    .accordion {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .accordion ul {
+        display: block;
+    }
+
+    #albumselector {
+        margin: 0;
+        clear: both;
+    }
+    ---------- Titre + Logo ----------------
+    .gif {
+        margin-top: 10px;
+        display: inline-block;
+    }
+
+    .gif img {
+        width: 18%;
+        float: none; 
+        padding: 1%;
+    }
+    
+
+    #principal h1 {
+        padding-top: 3%;
+        float: none; 
+    }
+
+    #principal h1 img {
+        display: inline-block;
+        padding: 0;
+        width: 60%;
+    }
+
+    /*--------------Lecteur--------------------*/
+    .lecteur {
+        background: rgb(21, 20, 20);
+        position: absolute;
+        bottom: 0;
+        padding: 9% 20px 10% 20px;
+    }
+
+    .lecteur .title {
+        padding-bottom: 2%;
+    }
+
+    .lecteur .title p {
+        font-size: 3em;
+        padding-bottom: 3%;
+    }
+
+    .lecteur img {
+        width: 8%;
+    }
+
+    /*-------------Texte -----------------------*/
+    .playlist p {
+        display: none;
+    }
+
+    .playlist .album {
+        font-size: 40px;
+    }
+    
+}
+
+@media screen and (max-width: 600px) {
+    .accordion ul li,
+    .accordion ul .selected,
+    .accordion ul li:hover,
+    .accordion ul:hover li,
+    .accordion ul:hover li:hover {
+       position: relative;
+        display: inline-block;
+        width: 40%;
+        height: 40%;
+        -webkit-transition: none;
+        transition: none;
+        
+    }
+    .accordion ul li {
+        vertical-align: bottom;
+        position: relative;
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+    }
+    
+    .accordion {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .accordion ul {
+        display: block;
+    }
+
+    #albumselector {
+        margin: 0;
+        clear: both;
+    }
+    ---------- Titre + Logo ----------------
+    .gif {
+        margin-top: 10px;
+        display: inline-block;
+    }
+
+    .gif img {
+        width: 13%;
+        float: none; 
+        padding: 1%;
+    }
+    
+
+    #principal h1 {
+        display: block;
+        margin: 0 auto;
+        padding-top: 1%;
+        float: none;
+        width: 70%; 
+    }
+
+    #principal h1 img {
+        display: inline-block;
+        padding: 0;
+        max-width: 300px;
+        min-width: 200px;
+        width: 65%;
+    }
+
+    /*--------------Lecteur--------------------*/
+    .lecteur {
+        position: absolute;
+        bottom: 7%;
+    }
+
+    .lecteur .title {
+        padding-bottom: 2%;
+    }
+
+    .lecteur .title p {
+        font-size: 1.7em;
+    }
+
+    /*-------------Texte -----------------------*/
+    
+    .playlist p {
+        display: none;
+    }
+
+    .playlist .album {
+        font-size: 1.5em;
+    }
+    
+}
